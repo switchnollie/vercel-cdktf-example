@@ -1,0 +1,30 @@
+{
+  "name": "@vercel-cdktf-example/deployment",
+  "version": "0.1.0",
+  "scripts": {
+    "get": "cdktf get",
+    "build": "tsc",
+    "synth": "cdktf synth",
+    "compile": "tsc --pretty",
+    "watch": "tsc -w",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "upgrade": "npm i cdktf@latest cdktf-cli@latest",
+    "upgrade:next": "npm i cdktf@next cdktf-cli@next"
+  },
+  "engines": {
+    "node": ">=14.0"
+  },
+  "dependencies": {
+    "cdktf": "^0.15.5",
+    "constructs": "^10.1.277"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.1",
+    "@types/node": "^18.15.3",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
+}
