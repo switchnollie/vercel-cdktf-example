@@ -1,4 +1,4 @@
-# Example Next13 App Deployment using CDKTF
+# Example Vercel Next13 App Deployment using CDKTF
 
 This is a minimal example showing how to deploy a Next 13 application on Vercel via CDK for Terraform (cdktf) and the [official Vercel Terraform Provider](https://github.com/vercel/terraform-provider-vercel).
 
