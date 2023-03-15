@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "dev": "pnpm --filter \"@vercel-cdktf-example/next-app\" dev",
-    "deploy": "pnpm --filter \"@vercel-cdktf-example/deployment\" run deploy"
+    "deploy": "pnpm --filter \"@vercel-cdktf-example/deployment\" run deploy",
+    "init": "pnpm --filter \"@vercel-cdktf-example/deployment\" run get"
   }
 }
