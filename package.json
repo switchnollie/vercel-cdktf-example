@@ -1,6 +1,16 @@
 {
   "name": "vercel-cdktf-example",
+  "author": "Tim Weise",
+  "license": "MIT",
   "version": "0.0.0",
+  "keywords": [
+    "nextjs",
+    "terraform",
+    "cdk",
+    "cdktf",
+    "next13",
+    "pnpm"
+  ],
   "private": "true",
   "workspaces": [
     "apps/*",
