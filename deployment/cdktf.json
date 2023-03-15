@@ -1,9 +1,9 @@
 {
   "language": "typescript",
-  "app": "npx ts-node main.ts",
+  "app": "pnpm exec ts-node main.ts",
   "projectId": "4b0bd00d-b940-4e90-95ac-75ff54687360",
   "sendCrashReports": "false",
-  "terraformProviders": [],
+  "terraformProviders": ["vercel/vercel@~> 0.3"],
   "terraformModules": [],
   "context": {
     "excludeStackIdFromLogicalIds": "true",

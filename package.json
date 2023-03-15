@@ -7,6 +7,7 @@
     "deployment"
   ],
   "scripts": {
-    "dev": "pnpm --filter \"@vercel-cdktf-example/next-app\" dev"
+    "dev": "pnpm --filter \"@vercel-cdktf-example/next-app\" dev",
+    "deploy": "pnpm --filter \"@vercel-cdktf-example/deployment\" run deploy"
   }
 }

@@ -9,15 +9,17 @@
     "watch": "tsc -w",
     "test": "jest",
     "test:watch": "jest --watch",
-    "upgrade": "npm i cdktf@latest cdktf-cli@latest",
-    "upgrade:next": "npm i cdktf@next cdktf-cli@next"
+    "upgrade": "pnpm i cdktf@latest cdktf-cli@latest",
+    "upgrade:next": "pnpm i cdktf@next cdktf-cli@next",
+    "deploy": "cdktf deploy"
   },
   "engines": {
     "node": ">=14.0"
   },
   "dependencies": {
     "cdktf": "^0.15.5",
-    "constructs": "^10.1.277"
+    "constructs": "^10.1.277",
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "@types/jest": "^29.4.1",
