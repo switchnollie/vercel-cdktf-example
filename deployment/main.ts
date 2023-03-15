@@ -1,18 +1,22 @@
+import * as path from "path";
+import * as dotenv from "dotenv";
 import { Construct } from "constructs";
-import { App, TerraformStack } from "cdktf";
+import { App, TerraformStack, Token } from "cdktf";
 import { Project as VercelProject } from "./.gen/providers/vercel/project";
 import { Deployment as VercelDeployment } from "./.gen/providers/vercel/deployment";
 import { VercelProvider } from "./.gen/providers/vercel/provider";
-import * as dotenv from "dotenv";
+import { DataVercelProjectDirectory } from "./.gen/providers/vercel/data-vercel-project-directory";
 
 dotenv.config();
 
 const APP_CONFIG = {
   vercelApiToken: process.env.VERCEL_API_TOKEN,
+  isProduction: true,
 } as const;
 
 interface NextAppStackProps {
   vercelApiToken: string;
+  isProduction?: boolean;
 }
 
 class NextAppStack extends TerraformStack {
@@ -28,8 +32,19 @@ class NextAppStack extends TerraformStack {
       framework: "nextjs",
     });
 
+    const projectDirectory = new DataVercelProjectDirectory(
+      this,
+      "vercel-project-directory",
+      {
+        path: path.resolve("../apps/next-app"),
+      }
+    );
+
     new VercelDeployment(this, "vercel-deployment", {
       projectId: vercelProject.id,
+      files: Token.asStringMap(projectDirectory.files),
+      pathPrefix: Token.asString(projectDirectory.path),
+      production: props.isProduction,
     });
   }
 }
@@ -39,7 +54,7 @@ if (!APP_CONFIG.vercelApiToken) {
   );
 }
 const app = new App();
-new NextAppStack(app, "tempBootstrap", {
+new NextAppStack(app, "vercel-cdktf-example-app", {
   vercelApiToken: APP_CONFIG.vercelApiToken,
 });
 app.synth();

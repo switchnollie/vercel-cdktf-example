@@ -11,7 +11,7 @@
     "test:watch": "jest --watch",
     "upgrade": "pnpm i cdktf@latest cdktf-cli@latest",
     "upgrade:next": "pnpm i cdktf@next cdktf-cli@next",
-    "deploy": "cdktf deploy"
+    "deploy": "cdktf deploy --auto-approve"
   },
   "engines": {
     "node": ">=14.0"
